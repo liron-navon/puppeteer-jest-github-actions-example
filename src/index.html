@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>button was clicked: <span id="counter">0</span> times</p>
+
+    <button id="btn">click me</button>
+
+    <script type="text/javascript">
+        const btn = document.querySelector('#btn');
+        const counter = document.querySelector('#counter');
+        btn.addEventListener('click', () => {
+            counter.innerHTML = +counter.textContent + 1;
+        });
+    </script>
+    
+</body>
+</html>

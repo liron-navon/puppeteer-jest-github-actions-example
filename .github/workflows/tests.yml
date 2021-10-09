@@ -1,0 +1,32 @@
+
+   
+name: Tests
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  ci:
+    runs-on: ubuntu-20.04
+    container: lironavon/docker-puppeteer-container:16.10.0
+    steps:
+      - name: setup git in container
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+          
+      - name: install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: test
+        env:
+          CI: true
+        run: npm test
