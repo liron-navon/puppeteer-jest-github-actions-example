@@ -12,20 +12,24 @@ jobs:
     runs-on: ubuntu-20.04
     container: lironavon/docker-puppeteer-container:16.10.0
     steps:
+      # add git to the container and set it up with the token
       - name: setup git in container
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      # cache the dependencies from any node_modules directory
       - name: cache dependencies
         uses: actions/cache@v2
         with:
           path: '**/node_modules'
           key: node_modules-${{ hashFiles('**/package-lock.json') }}
           
+      # install the dependencies
       - name: install dependencies
         run: npm ci --ignore-scripts
 
+      # run the tests
       - name: test
         env:
           CI: true
