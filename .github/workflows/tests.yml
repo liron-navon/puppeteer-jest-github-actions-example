@@ -10,7 +10,7 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-20.04
-    container: lironavon/docker-puppeteer-container:16.10.0
+    container: lironavon/docker-puppeteer-container:14.16.0
     steps:
       # add git to the container and set it up with the token
       - name: setup git in container
