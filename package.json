@@ -5,8 +5,11 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "start": "http-server src --port 9999 -c-1",
+    "start": "ws --directory src --port 9999",
     "test": "jest ./tests"
+  },
+  "jest": {
+    "preset": "jest-puppeteer"
   },
   "author": "liron-navon",
   "devDependencies": {
@@ -15,6 +18,6 @@
     "puppeteer": "^10.4.0"
   },
   "dependencies": {
-    "http-server": "^13.0.2"
+    "local-web-server": "^5.1.1"
   }
 }
