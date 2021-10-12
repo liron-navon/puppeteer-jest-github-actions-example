@@ -11,6 +11,8 @@ jobs:
   ci:
     runs-on: ubuntu-20.04
     container: lironavon/docker-puppeteer-container:14.16.0
+    env:
+      CI: true
     steps:
       # add git to the container and set it up with the token
       - name: setup git in container
@@ -31,6 +33,24 @@ jobs:
 
       # run the tests
       - name: test
-        env:
-          CI: true
         run: npm test
+
+      # check coverage - since jest-puppeteer-istanbul doesn't support it at the moment
+      - name: validate coverage
+        uses: devmasx/coverage-check-action@v1.2.0
+        with:
+          type: lcov
+          result_path: coverage/lcov.info
+          min_coverage: 90
+          token: ${{ github.token }}
+
+      # create a badge and make a report of the coverage
+      - name: display coverage
+        uses: ewjoachim/coverage-comment-action@v1
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+          COVERAGE_FILE: cobertura-coverage.xml
+          BADGE_ENABLED: true
+          BADGE_FILENAME: coverage-comment-badge.json
+          MINIMUM_GREEN: 100
+          MINIMUM_ORANGE: 90
