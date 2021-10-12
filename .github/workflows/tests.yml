@@ -49,7 +49,7 @@ jobs:
         uses: ewjoachim/coverage-comment-action@v1
         with:
           GITHUB_TOKEN: ${{ github.token }}
-          COVERAGE_FILE: cobertura-coverage.xml
+          COVERAGE_FILE: coverage/cobertura-coverage.xml
           BADGE_ENABLED: true
           BADGE_FILENAME: coverage-comment-badge.json
           MINIMUM_GREEN: 100
