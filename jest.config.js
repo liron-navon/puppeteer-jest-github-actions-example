@@ -18,5 +18,4 @@ const config = {
     ],
     "coverageDirectory": "coverage"
   }
-
 module.exports = config;
