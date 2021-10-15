@@ -6,4 +6,6 @@
 
 An example repo for running puppeteer in github actions ci environment
 
-* medium post coming soon
+### Related medium posts:
+
+[Running Puppeteer with Jest on Github actions for automated testing with coverage.](https://codesight.medium.com/running-puppeteer-with-jest-on-github-actions-for-automated-testing-with-coverage-6cd15bc843b0)
