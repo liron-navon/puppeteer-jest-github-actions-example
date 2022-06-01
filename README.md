@@ -2,7 +2,7 @@
 
 ![Workflow badge](https://github.com/liron-navon/puppeteer-jest-github-actions-example/actions/workflows/tests.yml/badge.svg)
 
-# puppeteer-jest-github-actions-example
+# puppeteer-jest-github-actions-example sir
 
 An example repo for running puppeteer in github actions ci environment
 
